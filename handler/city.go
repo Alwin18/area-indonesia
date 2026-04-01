@@ -55,24 +55,24 @@ func InsertCities(db *gorm.DB) {
 				}
 
 				for codeCity, name := range data {
-					province := domain.City{
-						Code:       codeCity,
-						Name:       name,
-						IsActive:   true,
-						ProvinceID: provincieID.ID,
+					city := domain.City{
+						KodeKota:   codeCity,
+						NamaKota:   name,
+						Status:     "Aktif",
+						ProvinsiID: provincieID.ID,
 						CreatedAt:  time.Now(),
 						UpdatedAt:  time.Now(),
 					}
 
-					datas = append(datas, province)
+					datas = append(datas, city)
 				}
 			}
 		}
 	}
 
 	if err := db.CreateInBatches(&datas, 100).Error; err != nil {
-		log.Fatalf("Error inserting province data: %v", err)
+		log.Fatalf("Error inserting kota data: %v", err)
 	}
 
-	fmt.Println("Data City berhasil disimpan.")
+	fmt.Println("Data Kota berhasil disimpan.")
 }

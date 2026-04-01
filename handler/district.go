@@ -54,12 +54,12 @@ func InsertDistrict(db *gorm.DB) {
 
 			for codeDistrict, name := range data {
 				province := domain.District{
-					Code:      codeDistrict,
-					Name:      name,
-					IsActive:  true,
-					CityID:    cityID,
-					CreatedAt: time.Now(),
-					UpdatedAt: time.Now(),
+					KodeKecamatan: codeDistrict,
+					NamaKecamatan: name,
+					Status:        "Aktif",
+					KotaID:        cityID,
+					CreatedAt:     time.Now(),
+					UpdatedAt:     time.Now(),
 				}
 
 				datas = append(datas, province)

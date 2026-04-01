@@ -14,7 +14,7 @@ var DB *gorm.DB
 func NewDatabase() *gorm.DB {
 	dsn := fmt.Sprintf(
 		"host=%s user=%s password=%s dbname=%s port=%s sslmode=%s",
-		"localhost", "postgres", "password", "seatly", "5432", "prefer",
+		"localhost", "postgres", "password", "e-pemilu", "5432", "prefer",
 	)
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})

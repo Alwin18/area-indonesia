@@ -29,11 +29,11 @@ func InsertProvince(db *gorm.DB) {
 	var datas []domain.Province
 	for code, name := range provinces {
 		province := domain.Province{
-			Code:      code,
-			Name:      name,
-			IsActive:  true,
-			CreatedAt: time.Now(),
-			UpdatedAt: time.Now(),
+			KodeProvinsi: code,
+			NamaProvinsi: name,
+			Status:       "Aktif",
+			CreatedAt:    time.Now(),
+			UpdatedAt:    time.Now(),
 		}
 
 		datas = append(datas, province)
@@ -49,7 +49,7 @@ func InsertProvince(db *gorm.DB) {
 func GetProvinces(db *gorm.DB, code string) (*domain.Province, error) {
 	var provinces domain.Province
 
-	if err := db.Select("id").Where("code = ?", code).First(&provinces).Error; err != nil {
+	if err := db.Select("id").Where("kode_provinsi = ?", code).First(&provinces).Error; err != nil {
 		return nil, err
 	}
 

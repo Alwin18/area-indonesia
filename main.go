@@ -22,8 +22,8 @@ func main() {
 	// handler.InsertCities(db)
 
 	// insert District
-	// handler.InsertDistrict(db)
+	handler.InsertDistrict(db)
 
 	// insert Village
-	handler.InsertVillage(db)
+	// handler.InsertVillage(db)
 }
